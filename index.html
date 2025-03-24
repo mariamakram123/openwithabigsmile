@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Messages</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d2b48c;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            position: relative;
+        }
+        .envelope-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .envelope {
+            width: 100px;
+            height: 80px;
+            background: url('https://i.imgur.com/0h7QGZL.png') no-repeat center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .message-box {
+            display: none;
+            position: absolute;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            width: 250px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+        button {
+            background-color: #8b4513;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #a0522d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Special Messages for Kunain</h1>
+    <button onclick="showEnvelopes()">Click Here</button>
+    <div class="envelope-container" id="envelopeContainer" style="display: none;">
+        <div class="envelope" onclick="showMessage(0)"></div>
+        <div class="envelope" onclick="showMessage(1)"></div>
+        <div class="envelope" onclick="showMessage(2)"></div>
+        <div class="envelope" onclick="showMessage(3)"></div>
+        <div class="envelope" onclick="showMessage(4)"></div>
+        <div class="envelope" onclick="showMessage(5)"></div>
+        <div class="envelope" onclick="showMessage(6)"></div>
+        <div class="envelope" onclick="showMessage(7)"></div>
+    </div>
+
+    <button id="nextButton" style="display:none;" onclick="openMotivationPage()">Next</button>
+
+    <script>
+        let messages = [
+            "You are the best person I have ever had in my life. ❤️",
+            "You are the secret I wanna keep safe. 😊❤️",
+            "I am proud of you! You're doing your best, and you are so worthy. 💖",
+            "Are you an exam? Because I've been studying you like crazy! 😍📖",
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ... Oops! I missed 'U' 😘",
+            "Hass rahe ho na, Kunain? Shamo aagyi? 😂❤️",
+            "Send me tumhari picture, cutieee! 📸",
+            "You are my bessstttttt waale person! 💕"
+        ];
+        
+        function showEnvelopes() {
+            document.getElementById("envelopeContainer").style.display = "flex";
+            document.getElementById("nextButton").style.display = "block";
+        }
+        
+        function showMessage(index) {
+            let msgBox = document.createElement("div");
+            msgBox.className = "message-box";
+            msgBox.innerText = messages[index];
+            document.body.appendChild(msgBox);
+
+            setTimeout(() => {
+                msgBox.style.display = "none";
+                msgBox.remove();
+            }, 3000);
+        }
+
+        function openMotivationPage() {
+            let motivationPage = window.open("", "_blank", "width=400,height=500");
+            motivationPage.document.write(`
+                <html>
+                <head>
+                    <title>Motivational Letter</title>
+                    <style>
+                        body { 
+                            font-family: Arial, sans-serif; 
+                            text-align: center; 
+                            background-color: #f8e8d0; 
+                            padding: 20px; 
+                        }
+                        .letter { 
+                            background: white; 
+                            padding: 20px; 
+                            border-radius: 10px; 
+                            box-shadow: 0px 0px 10px rgba(0,0,0,0.2); 
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="letter">
+                        <h2>Dear Kunain,</h2>
+                        <p>Aaj ka din chahe jitna bhi busy ho, ek baat yaad rakhna tum jitni mehnat kar rahe ho, uska result zaroor milega! 🌟</p>
+                        <p>Main jaanti hun kabhi kabhi kaam ka pressure zyada lagta hai, aur asa mehsoos hota hai jese din kabhi khatam hi nahi hoga. Lekin yeh waqt bhi guzar jayega, aur tum aur bhi strong aur successful banogay! 💪✨</p>
+                        <p>Tumhari dedication aur hard work ki wajah se tum apni life ke best version ki taraf barh rahe ho. Agar kabhi lage ke sab kuch overwhelming ho raha hai, toh ek pal ke liye ruk kar saans lo, thora relax karo, aur khud ko yaad dilao tum already amazing ho! ❤️</p>
+                        <p>Koi bhi challenge ho, tum usse handle kar sakte ho. Tumhari mehnat waste nahi jayegi. Tumhare sapne tumse door nahi hain bas thori aur patience aur mehnat chahiye. 🌸</p>
+                        <p>Agar aaj ka din thora tough lag raha hai, toh bas yeh yaad rakhna:</p>
+                        <p><b>"Tumhari life ek book hai, aur yeh sirf ek page hai abhi bohot saari acchi cheezein aani baaki hain!" 📖✨</b></p>
+                        <p>So, keep going, cutieee! Tumhe khush dekh k muje khushi hoti hai so smile 💖</p>
+                        <p><b>With lots of support & appreciation,</b><br>Your Pookie ❤️</p>
+                    </div>
+                </body>
+                </html>
+            `);
+        }
+    </script>
+</body>
+</html>
